@@ -8,7 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "vue": "^2.5.17"
+    "element-ui": "^2.4.11",
+    "monaco-editor": "^0.15.6",
+    "vue": "^2.5.17",
+    "vue-monaco": "^0.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.2.0",
