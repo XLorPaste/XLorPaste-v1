@@ -5,15 +5,13 @@
     <el-col :span="2"></el-col>
     <el-menu-item index="index" class="nav-logo">XLorPaste</el-menu-item>
     
-    <!-- <el-col class="go-url" :span="8" :push="10"> -->
     <div style="height: 100%; width: 400px; margin-left: 5px;">
-        <el-input placeholder="Token串">
+        <el-input placeholder="Token串" v-model="codeID">
             <template slot="prepend">localhost:8080/</template>
             <!-- <el-button slot="append" type="primary" icon="el-icon-arrow-right"></el-button> -->
             <!-- <el-button slot="append">Go</el-button> -->
         </el-input>  
     </div>
-    <!-- </el-col> -->
     
 </el-menu>
 </template>
@@ -24,8 +22,12 @@ export default {
     data() {
         return {
             activeIndex: "index",
+            codeID: null,
         };
     },
+    methods: {
+        
+    }
 };
 
 </script>

@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <xlor-nav></xlor-nav>
-    <xlorEditor></xlorEditor>
+    <!-- <xlorEditor></xlorEditor> -->
+    <router-view></router-view>
+    <xlor-footer></xlor-footer>
   </div>
 </template>
 
 <script>
-import xlorEditor from './components/xlor-editor'
 import xlorNav from './components/xlor-nav.vue'
+import xlorFooter from './components/xlor-footer.vue'
 
 export default {
   name: 'app',
@@ -18,7 +20,7 @@ export default {
   },
   components: {
     xlorNav,
-    xlorEditor
+    xlorFooter
   },
   mounted() {
 
