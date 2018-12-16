@@ -1,14 +1,16 @@
 <template>
-<div id="xlor-editor">
-    <el-card shadow="always">
-        <monaco-editor
-            class="editor"
-            v-model="code"
-            :options="option"
-            language="python">
-        </monaco-editor>
-    </el-card>
-</div>
+<el-row id="xlor-editor">
+    <el-col :span="20" :push="2">
+        <el-card shadow="always">
+            <monaco-editor
+                class="editor"
+                v-model="code"
+                :options="option"
+                language="python">
+            </monaco-editor>
+        </el-card>
+    </el-col>
+</el-row>
 </template>
 
 <script>
@@ -33,11 +35,14 @@ export default {
 #xlor-editor {
     margin: 30px auto;
     padding: 1px;
-    width: 80%;
-    height: 600px;
+    /* width: 80%;
+    height: 600px; */
     /* border: 1px solid black; */
 }
-#xlor-editor .el-card{
+#xlor-editor>.el-col {
+    height: 600px;
+}
+#xlor-editor .el-card {
     width: 100%;
     height: 100%;
 }

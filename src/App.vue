@@ -1,15 +1,13 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <xlor-nav></xlor-nav>
     <xlorEditor></xlorEditor>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-// import MonacoEditor from 'vue-monaco'
 import xlorEditor from './components/xlor-editor'
+import xlorNav from './components/xlor-nav.vue'
 
 export default {
   name: 'app',
@@ -19,7 +17,7 @@ export default {
     };
   },
   components: {
-    HelloWorld,
+    xlorNav,
     xlorEditor
   },
   mounted() {
