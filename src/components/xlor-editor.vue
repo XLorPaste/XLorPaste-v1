@@ -68,7 +68,7 @@ export default {
                 // console.log(data['token']);
 
                 if (data['status'] == 'reject') {
-                    
+                    this.$message.error('上传失败');
                     return false;
                 } 
 

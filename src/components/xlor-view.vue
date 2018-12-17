@@ -3,6 +3,7 @@
     <el-col :span="20" :push="2">
         <el-card v-if="onload" class="display-code">
             <xlor-code :code="code" :lang="lang"></xlor-code>
+            <el-button type="primary" size="small" class="copy-button" @click="copyData">复制</el-button>
         </el-card>
     </el-col>
 </el-row>   
@@ -28,7 +29,9 @@ export default {
         };
     },
     methods: {
-        
+        copyData() {
+            window.copyData(this.pcode, 1);
+        }
     },
     computed: {
         id() {
@@ -87,5 +90,9 @@ pre>code {
     font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;;
     width: 100%;
 }
-
+#xlor-view .copy-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
 </style>
