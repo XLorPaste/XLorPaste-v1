@@ -28,7 +28,7 @@ Vue.prototype.baseURL = "http://localhost:8080/#/";
 Vue.prototype.server = "http://localhost:5000";
 
 window.copyData = function(data, t){
-  let oInput = document.createElement('input');
+  let oInput = document.createElement('textarea');
   if (t) oInput.value = data
   else oInput.value = "http://localhost:8080/#/" + data;
   document.body.appendChild(oInput);
