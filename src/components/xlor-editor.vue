@@ -45,11 +45,11 @@ const LANG = {
 export default {
     data() {
         return {
-            code: "print('Hello World')",
+            code: "",
             option: {
                 scrollBeyondLastLine: false,
             },
-            lang: "python",
+            lang: "cpp",
             langList: [ "text", "cpp", "python", "java" ]
         };
     },

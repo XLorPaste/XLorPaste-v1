@@ -59,10 +59,18 @@ export default {
 
         }.bind(this)).catch(function(error) {
             console.log(error);
+
+            this.$message({
+                duration: 4000,
+                message: 'Invalid Token',
+                type: 'error'
+            });
+            this.router.replace({
+                path: '/index'
+            });
             
         }.bind(this));
 
-        // window.hljs.initLineNumbersOnLoad();
     },
     components: {
         xlorCode
@@ -74,9 +82,6 @@ export default {
 #xlor-view {
     margin: 20px auto;
 }
-/* #xlor-view .display-code>div {
-    padding: 20px 20px !important;
-} */
 
 pre>code {
     font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;;

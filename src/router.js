@@ -20,6 +20,7 @@ export default new VueRouter({
         },
         {
             path: '*',
+            component: resolve => require(['./components/xlor-error.vue'], resolve)
         }
     ]
 });
