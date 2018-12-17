@@ -18,11 +18,12 @@ export default {
 #xlor-footer{
     width: 100%;
     height: 60px;
-    background-color: black;
-    color: #FFF;
+    /* background-color: black; */
+    color: black;
     text-align: center;
     font-family: Consolas;
     font-size: 20px;
-    padding: 70px 0;
+    padding: 30px 0;
+    padding-bottom: 0px;
 }
 </style>

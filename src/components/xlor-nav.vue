@@ -6,8 +6,8 @@
     <el-menu-item index="index" class="nav-logo">XLorPaste</el-menu-item>
     
     <div style="height: 100%; width: 400px; margin-left: 5px;">
-        <el-input placeholder="Token串" v-model="codeID" @keyup.enter.native="goUrl">
-            <template slot="prepend">localhost:8080/</template>
+        <el-input placeholder="神秘串串" v-model="codeID" @keyup.enter.native="goUrl">
+            <template slot="prepend">localhost:8080/#/</template>
             <!-- <el-button slot="append" type="primary" icon="el-icon-arrow-right"></el-button> -->
             <!-- <el-button slot="append">Go</el-button> -->
         </el-input>  
@@ -32,7 +32,7 @@ export default {
             });
         },
         goUrl() {
-            console.log('go:', this.codeID);
+            // console.log('go:', this.codeID);
             if (!this.codeID) {
                 this.router.push({
                     path: '/index'

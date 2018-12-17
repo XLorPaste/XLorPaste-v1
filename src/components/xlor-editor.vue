@@ -26,6 +26,7 @@
 
         <el-button class="submit-button" type="success" icon="el-icon-upload" @click="submit">提交</el-button>
 
+        <!-- <el-button type="text">查看文本</el-button> -->
     </el-col>
 </el-row>
 </template>
@@ -33,6 +34,13 @@
 <script>
 import MonacoEditor from 'vue-monaco'
 import { Base64 } from 'js-base64'
+
+const LANG = {
+    "text": 0,
+    "cpp": 1,
+    "python": 2,
+    "java": 3
+};
 
 export default {
     data() {
@@ -47,28 +55,32 @@ export default {
     },
     methods: {
         submit() {
-            console.log(this.code);
-            const LANG = {
-                "text": 0,
-                "cpp": 1,
-                "python": 2,
-                "java": 3
-            };
+            // console.log(this.code);
+            this.$notify.closeAll();
+
             var form = {
                 code: Base64.encodeURI(this.code),
                 lang: LANG[this.lang]
             };
             this.axios.post("/upload", form).then(function(response) {
                 var data = response.data;
-                console.log(data);
+
+                // console.log(data['token']);
+
                 if (data['status'] == 'reject') {
                     
                     return false;
                 } 
 
-                this.$message({
-                    message: '上传成功',
-                    type: 'success'
+                const msg = `文本对应的 Token 为 <strong>${data['token']}</strong><br>
+                <a href="http://localhost:8080/#/${data['token']}"><button type="button" class="el-button el-button--text">查看文本</button></a>
+                <button type="button" class="el-button el-button--text" onclick="window.copyUrl('${data['token']}')">复制链接</button>`;
+                this.$notify({
+                    title: '上传成功',
+                    type: 'success',
+                    dangerouslyUseHTMLString: true,
+                    message: msg,
+                    duration: 0
                 });
 
             }.bind(this)).catch(error => {

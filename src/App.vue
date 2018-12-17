@@ -33,6 +33,10 @@ export default {
   margin: 0;
   padding: 0;
 }
+a { 
+  text-decoration:none;
+  color: #4183C4;
+} 
 
 /* #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
