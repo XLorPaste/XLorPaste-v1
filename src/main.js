@@ -24,11 +24,13 @@ var axios_instance = axios.create({
 
 Vue.prototype.router = router;
 Vue.prototype.axios = axios_instance;
+Vue.prototype.baseURL = "http://localhost:8080/#/";
 Vue.prototype.server = "http://localhost:5000";
 
-window.copyUrl = function(url){
+window.copyData = function(data, t){
   let oInput = document.createElement('input');
-  oInput.value = "localhost:8080/#/" + url;
+  if (t) oInput.value = data
+  else oInput.value = "http://localhost:8080/#/" + data;
   document.body.appendChild(oInput);
   oInput.select();
   document.execCommand("Copy");

@@ -7,7 +7,7 @@
     
     <div style="height: 100%; width: 400px; margin-left: 5px;">
         <el-input placeholder="神秘串串" v-model="codeID" @keyup.enter.native="goUrl">
-            <template slot="prepend">localhost:8080/#/</template>
+            <template slot="prepend">{{ baseURL.split('://')[1] }}</template>
             <!-- <el-button slot="append" type="primary" icon="el-icon-arrow-right"></el-button> -->
             <!-- <el-button slot="append">Go</el-button> -->
         </el-input>  
