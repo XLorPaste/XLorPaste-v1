@@ -27,6 +27,19 @@ export default {
 </script>
 
 <style>
+pre, code {
+    white-space: pre;
+    overflow-x: scroll;
+}
+.hljs {
+    display: inline-block;
+    overflow-x: scroll;
+    padding: 0.5em;
+    padding-right: 100%;
+    background: #002b36;
+    color: #839496;
+    -webkit-text-size-adjust: none;
+}
 td.hljs-ln-numbers {
     -webkit-touch-callout: none;
     -webkit-user-select: none;

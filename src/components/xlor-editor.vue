@@ -75,6 +75,7 @@ export default {
                 const msg = `文本对应的 Token 为 <strong>${data['token']}</strong><br>
                 <a href="${this.baseURL}${data['token']}"><button type="button" class="el-button el-button--text">查看文本</button></a>
                 <button type="button" class="el-button el-button--text" onclick="window.copyData('${data['token']}')">复制链接</button>`;
+                
                 this.$notify({
                     title: '上传成功',
                     type: 'success',

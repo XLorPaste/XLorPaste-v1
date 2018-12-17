@@ -3,7 +3,7 @@
     <el-col :span="20" :push="2">
         <el-card v-if="onload" class="display-code">
             <xlor-code :code="code" :lang="lang"></xlor-code>
-            <el-button type="primary" size="small" class="copy-button" @click="copyData">复制</el-button>
+            <el-button type="primary" size="medium" class="copy-button" @click="copyData">复制</el-button>
         </el-card>
     </el-col>
 </el-row>   
@@ -31,6 +31,10 @@ export default {
     methods: {
         copyData() {
             window.copyData(this.pcode, 1);
+            this.$message({
+                message: '复制成功',
+                type: 'success'
+            });
         }
     },
     computed: {

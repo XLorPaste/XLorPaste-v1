@@ -1,6 +1,6 @@
 <template>
 <div id="xlor-footer">
-    <el-row>&copy;&thinsp;2018, XLor Paste</el-row>
+    <el-row>&copy;&thinsp;2018, XLorPaste</el-row>
     <el-row>Powered by XLor</el-row>
 </div>
 </template>
