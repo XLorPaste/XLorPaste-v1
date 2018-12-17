@@ -91,7 +91,7 @@ export default {
 }
 
 pre>code {
-    font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;;
+    font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
     width: 100%;
 }
 #xlor-view .copy-button {

@@ -37,7 +37,18 @@ a {
   text-decoration:none;
   color: #4183C4;
 } 
-
+.align-center {
+  text-align: center;
+}
+.no-select {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+.code-font {
+  font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+}
 /* #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

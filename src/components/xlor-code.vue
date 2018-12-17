@@ -29,11 +29,11 @@ export default {
 <style>
 pre, code {
     white-space: pre;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 .hljs {
     display: inline-block;
-    overflow-x: scroll;
+    overflow-x: auto;
     padding: 0.5em;
     padding-right: 100%;
     background: #002b36;
