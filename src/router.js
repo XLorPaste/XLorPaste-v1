@@ -16,7 +16,10 @@ export default new VueRouter({
         },
         {
             path: '/:id',
-            component: resolve => require(['./components/xlor-editor.vue'], resolve)
+            component: resolve => require(['./components/xlor-view.vue'], resolve)
+        },
+        {
+            path: '*',
         }
     ]
 });

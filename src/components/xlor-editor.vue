@@ -19,7 +19,8 @@
                 class="editor"
                 v-model="code"
                 :options="option"
-                language="python">
+                :language="lang"
+                theme="Visual Studio">
             </monaco-editor>
         </el-card>
 
@@ -31,6 +32,7 @@
 
 <script>
 import MonacoEditor from 'vue-monaco'
+import { Base64 } from 'js-base64'
 
 export default {
     data() {
@@ -39,14 +41,39 @@ export default {
             option: {
                 scrollBeyondLastLine: false,
             },
-            lang: "C++",
-            langList: [ "Text", "C++", "python", "Java" ]
+            lang: "python",
+            langList: [ "text", "cpp", "python", "java" ]
         };
     },
     methods: {
         submit() {
             console.log(this.code);
-            
+            const LANG = {
+                "text": 0,
+                "cpp": 1,
+                "python": 2,
+                "java": 3
+            };
+            var form = {
+                code: Base64.encodeURI(this.code),
+                lang: LANG[this.lang]
+            };
+            this.axios.post("/upload", form).then(function(response) {
+                var data = response.data;
+                console.log(data);
+                if (data['status'] == 'reject') {
+                    
+                    return false;
+                } 
+
+                this.$message({
+                    message: '上传成功',
+                    type: 'success'
+                });
+
+            }.bind(this)).catch(error => {
+                this.$message.error('上传失败');
+            }); 
         }
     },
     components: {
