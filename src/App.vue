@@ -37,7 +37,7 @@ export default {
 * {
   margin: 0;
   padding: 0;
-  font-family: Consolas, "PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  font-family: Consolas, sans-serif, "PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial;
 }
 html, body {
   height: 100%;
