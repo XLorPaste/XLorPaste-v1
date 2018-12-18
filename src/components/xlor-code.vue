@@ -49,14 +49,25 @@ td.hljs-ln-numbers {
     user-select: none;
 
     text-align: right;
-    /* color: #ccc; */
     color: #909399;
     /* border-right: 1px solid #CCC; */
     border-right: 1px solid #909399;
+    /* box-shadow: inset -1px 0px 1px -1px #909399; */
     vertical-align: top;
     padding-right: 5px !important;
 
     /* your custom style here */
+}
+/* td.hljs-ln-numbers>div {
+    margin-right: 5px;
+} */
+
+@media screen and (-webkit-min-device-pixel-ratio: 2){
+    td.hljs-ln-numbers {
+        border: none;
+        background-position: left top;
+        background-image: -webkit-gradient(linear,left top,right top,color-stop(0.96,transparent),color-stop(0.96,#909399),to(#909399));
+    }
 }
 
 /* for block of code */

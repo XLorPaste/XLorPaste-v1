@@ -96,7 +96,11 @@ pre>code {
 }
 #xlor-view .copy-button {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 2%;
+    right: 1.5%;
+}
+
+#xlor-view .display-code>div {
+    padding: 2% !important;
 }
 </style>

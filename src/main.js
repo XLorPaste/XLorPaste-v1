@@ -18,9 +18,7 @@ hljs.registerLanguage('python', python);
 hljs.registerLanguage('java', java);
 
 const DEBUG = false;
-
 var server_url, app_url;
-
 if (!DEBUG) {
   server_url = "http://132.232.232.156/api/";
   app_url = "http://132.232.232.156/#/";
