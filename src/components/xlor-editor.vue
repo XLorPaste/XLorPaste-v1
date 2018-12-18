@@ -16,15 +16,22 @@
             <el-button size="medium" class="submit-button" type="success" icon="el-icon-upload" @click="submit">提交</el-button>
         </el-row>
 
-        <el-card shadow="always">
-            <monaco-editor
+        <!-- <el-card shadow="always"> -->
+            <!-- <monaco-editor
                 class="editor"
                 v-model="code"
                 :options="option"
                 :language="lang"
                 theme="Visual Studio">
-            </monaco-editor>
-        </el-card>
+            </monaco-editor> -->
+            <el-input class="editor"
+                type="textarea"
+                :autosize="{ minRows: 20}"
+                :rows="20"
+                autofocus="true"
+                v-model="code">
+            </el-input>
+        <!-- </el-card> -->
 
         <!-- <el-button class="submit-button" type="success" icon="el-icon-upload" @click="submit">提交</el-button> -->
 
@@ -34,7 +41,7 @@
 </template>
 
 <script>
-import MonacoEditor from 'vue-monaco'
+// import MonacoEditor from 'vue-monaco'
 import { Base64 } from 'js-base64'
 
 const LANG = {
@@ -92,7 +99,7 @@ export default {
         }
     },
     components: {
-        MonacoEditor
+        // MonacoEditor
     },    
 };    
 </script>
@@ -101,12 +108,17 @@ export default {
 #xlor-editor {
     margin: 10px auto;
     padding: 1px;
-    height: 650px;
-    /* width: 80%;
-    height: 600px; */
-    /* border: 1px solid black; */
 }
-#xlor-editor>.el-col {
+#xlor-editor .editor {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 16px !important;
+}
+#xlor-editor .submit-button {
+    margin: 10px auto; 
+}
+/* #xlor-editor>.el-col {
     height: 500px;
 }
 #xlor-editor .el-card {
@@ -118,17 +130,5 @@ export default {
     margin: 0 auto;
     width: 96%;
     height: 96%;
-}
-#xlor-editor .editor {
-  /* margin: 20px auto; */
-  width: 100%;
-  height: 100%;
-  /* height: 600px; */
-  /* border: 1px solid black; */
-  /* padding: 1px; */
-}
-
-#xlor-editor .submit-button {
-    margin: 10px auto; 
-}
+} */
 </style>

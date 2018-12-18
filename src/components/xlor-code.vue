@@ -1,5 +1,5 @@
 <template>
-<pre ref="cd"><code :class="lang" v-html="code" ref="cd2"></code></pre>
+<pre id="xlor-code"><code :class="lang" v-html="code" ref="cd"></code></pre>
 </template>
 
 <script>
@@ -21,12 +21,15 @@ export default {
     mounted() {
         // window.hljs.initLineNumbersOnLoad();
         // console.log(this.$refs['cd'].innerHTML);
-        window.hljs.lineNumbersBlock(this.$refs['cd2'], {singleLine: true});
+        window.hljs.lineNumbersBlock(this.$refs['cd'], {singleLine: true});
     }
 };    
 </script>
 
 <style>
+#xlor-code {
+    width: 100%;
+}
 pre, code {
     white-space: pre;
     overflow-x: auto;

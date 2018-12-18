@@ -1,10 +1,10 @@
 <template>
 <el-row id="xlor-view">
-    <el-col :span="20" :push="2">
+    <el-col :span="20" :push="2" ref="faElement" id="faElement">
         <el-card v-if="onload" class="display-code">
             <xlor-code :code="code" :lang="lang"></xlor-code>
-            <el-button type="primary" size="mini" class="copy-button" @click="copyData">复制</el-button>
         </el-card>
+        <el-button type="primary" size="mini" class="copy-button" :style="copyStyle" @click="copyData">复制</el-button>
     </el-col>
 </el-row>   
 </template>
@@ -26,7 +26,13 @@ export default {
             onload: false,
             pcode: '',
             lang: 'plaintext',
+            // copyStyle: {
+            //     top: "9px",
+            // },
         };
+    },
+    props: {
+        width: Number,
     },
     methods: {
         copyData() {
@@ -48,10 +54,29 @@ export default {
             set(x) {
                 this.pcode = x;
             }
+        },
+        copyStyle() {
+            if (this.width >= 1024) {
+                return { top: "9px" }
+            } else {
+                return { top: "7px" }
+            }
         }
     },
     mounted() {
         this.$notify.closeAll();
+
+        // if (document.body.clientWidth < 1024) {
+        //     this.copyStyle.top = "6px";
+        // }
+
+        // this.copyStyle.top = this.$refs.faElement.$el.offsetWidth * 0.015 + "px";
+        // let sz = parseInt(document.documentElement.style.fontSize.split('px')[0]);
+        // if (sz <= 12) {
+        //     this.copyStyle['font-size'] = document.documentElement.style.fontSize + " !important";
+        // }
+        // console.log(this.copyStyle['font-size']);
+        // console.log(this.copyStyle.top);
 
         this.axios.get('/query/' + this.id).then(function(response) {
             var data = response.data;
@@ -69,7 +94,7 @@ export default {
 
             this.$message({
                 duration: 4000,
-                message: 'Invalid Token',
+                message: 'Token不合法',
                 type: 'error'
             });
             this.router.replace({
@@ -89,18 +114,26 @@ export default {
 #xlor-view {
     margin: 20px auto;
 }
+#xlor-view>.el-col {
+    position: relative;
+}
 
 pre>code {
     font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
     width: 100%;
 }
 #xlor-view .copy-button {
+    /* position: absolute;
+    top: 10px;
+    right: 2%; */
     position: absolute;
-    top: 2%;
     right: 1.5%;
+    padding: 7px 10px !important;
 }
 
 #xlor-view .display-code>div {
-    padding: 2% !important;
+    padding: 12px 2% !important;
+    height: 100%;
+    width: 96%;
 }
 </style>

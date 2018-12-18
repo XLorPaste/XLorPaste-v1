@@ -4,8 +4,9 @@
 
     <el-col :span="2" :xs="0"></el-col>
     <el-menu-item index="index" class="nav-logo no-select"><router-link to="/index">XLorPaste</router-link></el-menu-item>
-    <el-menu-item index="in" style="height: 100%;" class="no-border">
-        <el-input placeholder="神秘串串" :style="inputStyle" v-model="codeID" @keyup.enter.native="goUrl">
+    <el-menu-item index="in" style="height: 100%;" class="no-border nav-input">
+        <el-input placeholder="神秘Token" :style="inputStyle" v-model="codeID" 
+            @keyup.enter.native="goUrl">
             <template slot="prepend">{{ baseURL.split('://')[1] }}</template>
             <!-- <el-button slot="append" type="primary" icon="el-icon-arrow-right"></el-button> -->
             <!-- <el-button slot="append">Go</el-button> -->
@@ -20,7 +21,8 @@ const changeFontSize = function() {
     const width = document.body.clientWidth;
     let ans = "16px";
     if (width < 1024) {
-        ans = width / 1024 * 16 + "px";
+        // ans = width / 1024 * 16 + "px";
+        ans = "12px";
     }
     document.documentElement.style.fontSize = ans;
 }
@@ -42,14 +44,22 @@ export default {
         };
     },
     methods: {
-        handleSelect() {
-            // this.router.push({
-            //     path: '/index'
-            // });
+        handleSelect(key) {
+            // console.log(key);
+            if (key === 'index') {
+                this.router.push({
+                    path: '/index'
+                });
+            }
         },
         goUrl() {
             // console.log('go:', this.codeID);
             if (!this.codeID) {
+                this.$message({
+                    duration: 4000,
+                    message: 'Token不合法',
+                    type: 'error'
+                });
                 this.router.push({
                     path: '/index'
                 });
@@ -75,11 +85,16 @@ export default {
         const that = this;
         window.onresize = () => {
             return (() => {
+                let width = document.body.clientWidth;
+
                 changeFontSize();
-                window.screenWidth = document.body.clientWidth
-                that.screenWidth = window.screenWidth
+                that.$emit('changewidth', width);
+
+                // window.screenWidth = document.body.clientWidth;
+                // that.screenWidth = window.screenWidth;
                 // console.log(that.screenWidth);
-                if (that.screenWidth < 430) {
+                
+                if (width < 430) {
                     that.onMobile = true;
                     that.mode = "vertical";
                     that.menuClass = ["align-center"];
@@ -105,6 +120,8 @@ export default {
 #xlor-nav .nav-logo {
     font-size: 23px;
     font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+    border-bottom: 2px solid #409EFF !important;
+    color: #303133;
 }
 #xlor-nav .go-url {
     padding: 0 10px;
@@ -121,6 +138,13 @@ export default {
     color: #ffffff !important;
     border-width: 0px !important;
 }
+#xlor-nav .nav-input {
+    pointer-events: none;
+}
+#xlor-nav .nav-input>div>input {
+    pointer-events: auto;
+}
+
 .no-border {
     border-width: 0px !important;
 }
