@@ -16,6 +16,14 @@
 </template>
 
 <script>
+const changeFontSize = function() {
+    const width = document.body.clientWidth;
+    let ans = "16px";
+    if (width < 1024) {
+        ans = width / 1024 * 16 + "px";
+    }
+    document.documentElement.style.fontSize = ans;
+}
 
 export default {
     data() {
@@ -54,6 +62,9 @@ export default {
         },
     },
     mounted() {
+        // document.documentElement.style.fontSize = document.body.clientWidth / 1024 * 14 + "px";
+        changeFontSize();
+
         if (document.body.clientWidth < 430) {
             this.onMobile = true;
             this.mode = "vertical";
@@ -64,6 +75,7 @@ export default {
         const that = this;
         window.onresize = () => {
             return (() => {
+                changeFontSize();
                 window.screenWidth = document.body.clientWidth
                 that.screenWidth = window.screenWidth
                 // console.log(that.screenWidth);

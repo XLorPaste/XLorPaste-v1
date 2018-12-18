@@ -52,15 +52,15 @@ td.hljs-ln-numbers {
     /* color: #ccc; */
     color: #909399;
     /* border-right: 1px solid #CCC; */
-    border-right: 1.5px solid #909399;
+    border-right: 1px solid #909399;
     vertical-align: top;
-    padding-right: 10px;
+    padding-right: 5px !important;
 
     /* your custom style here */
 }
 
 /* for block of code */
 td.hljs-ln-code {
-    padding-left: 10px;
+    padding-left: 5px !important;
 }
 </style>

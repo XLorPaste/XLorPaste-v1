@@ -17,27 +17,40 @@ hljs.registerLanguage('cpp', cpp);
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('java', java);
 
+const DEBUG = false;
+
+var server_url, app_url;
+
+if (!DEBUG) {
+  server_url = "http://132.232.232.156/api/";
+  app_url = "http://132.232.232.156/#/";
+} else {
+  server_url = "http://localhost:5000/api/";
+  app_url = "http://localhost:8080/#/";
+}
+
 var axios_instance = axios.create({
-  baseURL: "http://localhost:5000/",
+  baseURL: server_url,
   headers: {'Content-Type':'application/x-www-form-urlencoded'}
 });
 
 Vue.prototype.router = router;
 Vue.prototype.axios = axios_instance;
-Vue.prototype.baseURL = "http://localhost:8080/#/";
-Vue.prototype.server = "http://localhost:5000";
+Vue.prototype.baseURL = app_url;
+// Vue.prototype.baseURL = "http://localhost:8080/#/";
+// Vue.prototype.server = "http://localhost:5000";
 
 window.copyData = function(data, t){
   let oInput = document.createElement('textarea');
   if (t) oInput.value = data
-  else oInput.value = "http://localhost:8080/#/" + data;
+  else oInput.value = app_url + data;
   document.body.appendChild(oInput);
   oInput.select();
   document.execCommand("Copy");
   oInput.style.display='none';
 };
 
-Vue.config.productionTip = false
+Vue.config.productionTip = true;
 Vue.use(ElementUI);
 
 new Vue({

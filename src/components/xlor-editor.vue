@@ -3,8 +3,9 @@
     <el-col :span="20" :push="2">
 
         <el-row>
-            <strong>语言&nbsp;</strong>
-            <el-select v-model="lang" placeholder="请选择">
+            <strong style="font-size: 14px;">语言&nbsp;</strong>
+            <el-select size="medium" v-model="lang" placeholder="请选择"
+                style="margin-right: 10px;">
                 <el-option
                 v-for="item in langList"
                 :key="item"
@@ -12,6 +13,7 @@
                 :value="item">
                 </el-option>
             </el-select>
+            <el-button size="medium" class="submit-button" type="success" icon="el-icon-upload" @click="submit">提交</el-button>
         </el-row>
 
         <el-card shadow="always">
@@ -24,7 +26,7 @@
             </monaco-editor>
         </el-card>
 
-        <el-button class="submit-button" type="success" icon="el-icon-upload" @click="submit">提交</el-button>
+        <!-- <el-button class="submit-button" type="success" icon="el-icon-upload" @click="submit">提交</el-button> -->
 
         <!-- <el-button type="text">查看文本</el-button> -->
     </el-col>
