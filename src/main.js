@@ -17,7 +17,7 @@ hljs.registerLanguage('cpp', cpp);
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('java', java);
 
-const DEBUG = true;
+const DEBUG = false;
 var server_url, app_url;
 if (!DEBUG) {
   server_url = "http://xlorpaste.cn/api/";

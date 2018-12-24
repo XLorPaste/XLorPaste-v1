@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         dlgwidth(){
-            if (document.body.clientWidth < 430) return "90%";
+            if (document.body.clientWidth < 800) return "90%";
             return "30%";
         }
     },
