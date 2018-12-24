@@ -13,7 +13,7 @@
     <el-dialog center
         title="使用指南"
         :visible.sync="showTip"
-        width="30%">
+        :width="dlgwidth()">
         <p><strong>上传你想要分享代码，复制链接，分享！</strong></p>
         <br>
         <p>Token是每一份代码的唯一标识。</p>
@@ -31,6 +31,12 @@ export default {
         return {
             showTip: false,
         };
+    },
+    methods: {
+        dlgwidth(){
+            if (document.body.clientWidth < 430) return "90%";
+            return "30%";
+        }
     },
     props: {
 
