@@ -61,9 +61,6 @@ td.hljs-ln-numbers {
 
     /* your custom style here */
 }
-/* td.hljs-ln-numbers>div {
-    margin-right: 5px;
-} */
 
 @media screen and (-webkit-min-device-pixel-ratio: 2){
     td.hljs-ln-numbers {
@@ -75,6 +72,6 @@ td.hljs-ln-numbers {
 
 /* for block of code */
 td.hljs-ln-code {
-    padding-left: 5px !important;
+    padding-left: 10px !important;
 }
 </style>

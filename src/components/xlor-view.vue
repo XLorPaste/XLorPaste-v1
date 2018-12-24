@@ -1,11 +1,15 @@
 <template>
 <el-row id="xlor-view">
-    <el-col :span="20" :push="2" ref="faElement" id="faElement">
-        <el-card v-if="onload" class="display-code">
+    <transition appear>
+    
+    <el-col v-if="onload" :span="20" :push="2" ref="faElement" id="faElement">
+        <el-card class="display-code">
             <xlor-code :code="code" :lang="lang"></xlor-code>
         </el-card>
         <el-button type="primary" size="mini" class="copy-button" :style="copyStyle" @click="copyData">复制</el-button>
     </el-col>
+
+    </transition>
 </el-row>   
 </template>
 
@@ -82,7 +86,14 @@ export default {
             var data = response.data;
             // console.log(data);
             if (data['status'] === 'reject') {
-
+                this.$message({
+                    duration: 4000,
+                    message: 'Token不合法',
+                    type: 'error'
+                });
+                this.router.replace({
+                    path: '/index'
+                });
                 return false;
             }
             this.code = Base64.decode(data['code']);
@@ -90,11 +101,16 @@ export default {
             this.onload = true;
 
         }.bind(this)).catch(function(error) {
-            console.log(error);
+            // console.log(error);
+            
+            let msg = '服务器错误';
+            if (error.response && error.response.status === 404) {
+                msg = 'Token不合法';
+            }
 
             this.$message({
                 duration: 4000,
-                message: 'Token不合法',
+                message: msg,
                 type: 'error'
             });
             this.router.replace({
@@ -116,6 +132,7 @@ export default {
 }
 #xlor-view>.el-col {
     position: relative;
+    z-index: -10;
 }
 
 pre>code {
@@ -135,5 +152,16 @@ pre>code {
     padding: 12px 2% !important;
     height: 100%;
     width: 96%;
+}
+
+.v-enter {
+    opacity: 0;
+    transform: translateY(-100px);
+}
+.v-enter-active {
+    transition: all 0.5s ease;
+}
+.v-enter-to {
+    opacity: 1;
 }
 </style>

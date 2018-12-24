@@ -24,13 +24,13 @@
                 :language="lang"
                 theme="Visual Studio">
             </monaco-editor> -->
-            <el-input class="editor"
-                type="textarea"
-                :autosize="{ minRows: 20}"
-                :rows="20"
-                autofocus="true"
-                v-model="code">
-            </el-input>
+        <el-input class="editor"
+            type="textarea"
+            :autosize="{ minRows: 20}"
+            :rows="20"
+            autofocus="true"
+            v-model="code">
+        </el-input>
         <!-- </el-card> -->
 
         <!-- <el-button class="submit-button" type="success" icon="el-icon-upload" @click="submit">提交</el-button> -->

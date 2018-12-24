@@ -17,14 +17,14 @@ hljs.registerLanguage('cpp', cpp);
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('java', java);
 
-const DEBUG = false;
+const DEBUG = true;
 var server_url, app_url;
 if (!DEBUG) {
-  server_url = "http://132.232.232.156/api/";
-  app_url = "http://132.232.232.156/#/";
+  server_url = "http://xlorpaste.cn/api/";
+  app_url = "http://xlorpaste.cn/";
 } else {
   server_url = "http://localhost:5000/api/";
-  app_url = "http://localhost:8080/#/";
+  app_url = "http://localhost:8080/";
 }
 
 var axios_instance = axios.create({
