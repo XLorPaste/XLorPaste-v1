@@ -132,7 +132,6 @@ export default {
 }
 #xlor-view>.el-col {
     position: relative;
-    z-index: -10;
 }
 
 pre>code {
@@ -156,12 +155,14 @@ pre>code {
 
 .v-enter {
     opacity: 0;
+    z-index: -1;
     transform: translateY(-100px);
 }
 .v-enter-active {
     transition: all 0.5s ease;
 }
 .v-enter-to {
+    z-index: 0;
     opacity: 1;
 }
 </style>

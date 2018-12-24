@@ -32,7 +32,7 @@ export default {
 }
 pre, code {
     white-space: pre;
-    overflow-x: auto;
+    overflow-x: scroll;
 }
 .hljs {
     display: inline-block;
