@@ -26,7 +26,7 @@
             </monaco-editor> -->
         <el-input class="editor"
             type="textarea"
-            :autosize="{ minRows: 20}"
+            :autosize="{ minRows: 20 }"
             :rows="20"
             autofocus="true"
             v-model="code">
@@ -67,6 +67,11 @@ export default {
             // console.log(this.code);
             this.$notify.closeAll();
 
+            if (this.code.length < 10) {
+                this.$message.error('分享的代码长度至少为 10 个字符');
+                return false;
+            }
+
             var form = {
                 code: Base64.encodeURI(this.code),
                 lang: LANG[this.lang]
@@ -94,6 +99,7 @@ export default {
                 });
 
             }.bind(this)).catch(error => {
+                console.log(error);
                 this.$message.error('上传失败');
             }); 
         }

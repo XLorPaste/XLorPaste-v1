@@ -4,9 +4,9 @@
     <el-row>
         <a href="#" @click="showTip=true;">User Guide</a>
         |
-        <a href="http://xlor.cn">XLor's Blog</a>
+        <a href="http://xlor.cn/2018/%E9%A1%B9%E7%9B%AE/xlorpaste/">Project Blog</a>
         |
-        <a href="https://github.com/yjl9903">Github</a>
+        <a href="http://www.miitbeian.gov.cn">苏ICP备19000844号</a>
     </el-row>
     <el-row>© 2018 <a href="mailto:yjl9903@vip.qq.com">XLor</a> All rights reserved</el-row>
 
