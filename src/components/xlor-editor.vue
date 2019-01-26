@@ -48,7 +48,8 @@ const LANG = {
     "text": 0,
     "cpp": 1,
     "python": 2,
-    "java": 3
+    "java": 3,
+    "markdown": 4
 };
 
 export default {
@@ -59,7 +60,7 @@ export default {
                 scrollBeyondLastLine: false,
             },
             lang: "cpp",
-            langList: [ "text", "cpp", "python", "java" ]
+            langList: [ "text", "cpp", "python", "java", "markdown" ]
         };
     },
     methods: {

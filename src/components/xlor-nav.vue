@@ -22,9 +22,15 @@ const changeFontSize = function() {
     let ans = "16px";
     if (width < 1024) {
         // ans = width / 1024 * 16 + "px";
-        ans = "12px";
+        ans = "10px";
     }
     document.documentElement.style.fontSize = ans;
+    try {
+        const dom = document.getElementsByName('xlor-code');
+        dom.style.fontSize = ans;
+    } catch(ex) {
+        console.log(ex);
+    }
 }
 
 export default {
@@ -119,7 +125,7 @@ export default {
 }
 #xlor-nav .nav-logo {
     font-size: 23px;
-    font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+    font-family: FiraCode, consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
     border-bottom: 2px solid #409EFF !important;
     color: #303133;
 }

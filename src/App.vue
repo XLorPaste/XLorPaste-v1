@@ -37,7 +37,7 @@ export default {
 * {
   margin: 0;
   padding: 0;
-  font-family: Consolas, sans-serif, "PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial;
+  font-family: FiraCode, Consolas, sans-serif, "PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial;
 }
 html, body {
   height: 100%;
@@ -64,14 +64,6 @@ a {
   user-select:none;
 }
 .code-font {
-  font-family: Consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+  font-family: FiraCode, Consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
 }
-/* #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
 </style>

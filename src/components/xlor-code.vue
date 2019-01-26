@@ -16,7 +16,12 @@ export default {
         lang: String,
     },
     methods: {
-
+        refresh() {
+            window.hljs.lineNumbersBlock(this.$refs['cd'], {singleLine: true});   
+        }
+    },
+    watch: {
+        code: "refresh"
     },
     mounted() {
         // window.hljs.initLineNumbersOnLoad();
@@ -29,6 +34,7 @@ export default {
 <style>
 #xlor-code {
     width: 100%;
+    font-size: 16px;
 }
 pre, code {
     white-space: pre;
@@ -60,6 +66,9 @@ td.hljs-ln-numbers {
     padding-right: 5px !important;
 
     /* your custom style here */
+    font-size: 16px;
+    line-height: 24px;
+    height: 24px;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 2){
@@ -72,6 +81,13 @@ td.hljs-ln-numbers {
 
 /* for block of code */
 td.hljs-ln-code {
+    height: 24px;
     padding-left: 10px !important;
+    line-height: 24px;
+}
+
+pre>code tr {
+    line-height: 24px;
+    padding: 0px;
 }
 </style>

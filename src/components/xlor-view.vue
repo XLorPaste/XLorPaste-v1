@@ -21,7 +21,8 @@ const idToLang = {
     0: 'text',
     1: 'cpp',
     2: 'python',
-    3: 'java'
+    3: 'java',
+    4: 'markdown'
 };
 
 export default {
@@ -30,9 +31,6 @@ export default {
             onload: false,
             pcode: '',
             lang: 'plaintext',
-            // copyStyle: {
-            //     top: "9px",
-            // },
         };
     },
     props: {
@@ -45,6 +43,43 @@ export default {
                 message: '复制成功',
                 type: 'success'
             });
+        },
+        getData() {
+            this.axios.get('/query/' + this.id).then(function(response) {
+                var data = response.data;
+                // console.log(data);
+                if (data['status'] === 'reject') {
+                    this.$message({
+                        duration: 4000,
+                        message: 'Token不合法',
+                        type: 'error'
+                    });
+                    this.router.replace({
+                        path: '/index'
+                    });
+                    return false;
+                }
+                this.code = Base64.decode(data['code']);
+                this.lang = idToLang[data['lang']];
+                this.onload = true;
+
+            }.bind(this)).catch(function(error) {
+                // console.log(error);
+                let msg = '服务器错误';
+                if (error.response && error.response.status === 404) {
+                    msg = 'Token不合法';
+                }
+
+                this.$message({
+                    duration: 4000,
+                    message: msg,
+                    type: 'error'
+                });
+                this.router.replace({
+                    path: '/index'
+                });
+                
+            }.bind(this));
         }
     },
     computed: {
@@ -69,56 +104,10 @@ export default {
     },
     mounted() {
         this.$notify.closeAll();
-
-        // if (document.body.clientWidth < 1024) {
-        //     this.copyStyle.top = "6px";
-        // }
-
-        // this.copyStyle.top = this.$refs.faElement.$el.offsetWidth * 0.015 + "px";
-        // let sz = parseInt(document.documentElement.style.fontSize.split('px')[0]);
-        // if (sz <= 12) {
-        //     this.copyStyle['font-size'] = document.documentElement.style.fontSize + " !important";
-        // }
-        // console.log(this.copyStyle['font-size']);
-        // console.log(this.copyStyle.top);
-
-        this.axios.get('/query/' + this.id).then(function(response) {
-            var data = response.data;
-            // console.log(data);
-            if (data['status'] === 'reject') {
-                this.$message({
-                    duration: 4000,
-                    message: 'Token不合法',
-                    type: 'error'
-                });
-                this.router.replace({
-                    path: '/index'
-                });
-                return false;
-            }
-            this.code = Base64.decode(data['code']);
-            this.lang = idToLang[data['lang']];
-            this.onload = true;
-
-        }.bind(this)).catch(function(error) {
-            // console.log(error);
-            
-            let msg = '服务器错误';
-            if (error.response && error.response.status === 404) {
-                msg = 'Token不合法';
-            }
-
-            this.$message({
-                duration: 4000,
-                message: msg,
-                type: 'error'
-            });
-            this.router.replace({
-                path: '/index'
-            });
-            
-        }.bind(this));
-
+        this.getData();
+    },
+    watch: {
+        "$route": "getData"
     },
     components: {
         xlorCode
@@ -135,7 +124,7 @@ export default {
 }
 
 pre>code {
-    font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+    font-family: FiraCode, consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
     width: 100%;
 }
 #xlor-view .copy-button {
