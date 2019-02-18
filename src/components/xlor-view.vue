@@ -88,7 +88,7 @@ export default {
         },
         code: {
             get() {
-                return window.hljs.highlightAuto(this.pcode).value ;
+                return window.hljs.highlightAuto(this.pcode.replace(/\t/g, '    ')).value ;
             },
             set(x) {
                 this.pcode = x;
