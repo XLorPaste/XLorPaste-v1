@@ -24,8 +24,6 @@ var server_url, app_url;
 if (!DEBUG) {
   server_url = "http://xlorpaste.cn/api/";
   app_url = "http://xlorpaste.cn/";
-  // server_url = "http://47.99.175.141/api/";
-  // app_url = "http://47.99.175.141/";
 } else {
   server_url = "http://localhost:5000/api/";
   app_url = "http://localhost:8080/";
@@ -39,8 +37,6 @@ var axios_instance = axios.create({
 Vue.prototype.router = router;
 Vue.prototype.axios = axios_instance;
 Vue.prototype.baseURL = app_url;
-// Vue.prototype.baseURL = "http://localhost:8080/#/";
-// Vue.prototype.server = "http://localhost:5000";
 
 window.copyData = function(data, t){
   let oInput = document.createElement('textarea');

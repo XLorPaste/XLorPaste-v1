@@ -33,12 +33,17 @@ export default {
                 fs = "10px"; lh = '18px';
             }
 
+            let u = navigator.userAgent;
+            if (u.indexOf('iPhone') > -1) {
+                fs = '9px'; lh = '16px';
+            }
+
             try {
                 dom.style['font-size'] = fs;
                 dom.style['line-height'] = lh;
                 dom.style['height'] = lh;
             } catch(ex) {
-                console.log(ex);
+                console.error(ex);
             } finally {
                 return false;
             }
@@ -85,12 +90,12 @@ td.hljs-ln-numbers {
     padding-right: 5px !important;
 
     /* your custom style here */
-    /* font-size: 16px;
-    line-height: 24px;
-    height: 24px; */
+    font-size: inherit;
+    line-height: inherit;
+    height: inherit;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 2){
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
     td.hljs-ln-numbers {
         border: none;
         background-position: left top;
@@ -100,13 +105,16 @@ td.hljs-ln-numbers {
 
 /* for block of code */
 td.hljs-ln-code {
-    /* height: 24px; */
     padding-left: 10px !important;
-    /* line-height: 24px; */
+    height: inherit;
+    line-height: inherit;
+    font-size: inherit;
 }
 
-pre>code tr {
-    /* line-height: 24px; */
+pre>code tbody, pre>code tr {
+    line-height: inherit;
+    height: inherit;
+    font-size: inherit;
     padding: 0px;
 }
 </style>
