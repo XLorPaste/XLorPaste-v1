@@ -8,8 +8,6 @@
         <el-input placeholder="神秘Token" :style="inputStyle" v-model="codeID" 
             @keyup.enter.native="goUrl">
             <template slot="prepend">{{ baseURL.split('://')[1] }}</template>
-            <!-- <el-button slot="append" type="primary" icon="el-icon-arrow-right"></el-button> -->
-            <!-- <el-button slot="append">Go</el-button> -->
         </el-input>  
     </el-menu-item>
     
@@ -25,12 +23,6 @@ const changeFontSize = function() {
         ans = "10px";
     }
     document.documentElement.style.fontSize = ans;
-    try {
-        const dom = document.getElementsByName('xlor-code');
-        dom.style.fontSize = ans;
-    } catch(ex) {
-        console.log(ex);
-    }
 }
 
 export default {
@@ -78,7 +70,6 @@ export default {
         },
     },
     mounted() {
-        // document.documentElement.style.fontSize = document.body.clientWidth / 1024 * 14 + "px";
         changeFontSize();
 
         if (document.body.clientWidth < 430) {
@@ -95,10 +86,6 @@ export default {
 
                 changeFontSize();
                 that.$emit('changewidth', width);
-
-                // window.screenWidth = document.body.clientWidth;
-                // that.screenWidth = window.screenWidth;
-                // console.log(that.screenWidth);
                 
                 if (width < 430) {
                     that.onMobile = true;
@@ -120,7 +107,6 @@ export default {
 
 <style>
 #xlor-nav {
-    /* width: 80%; */
     margin: 0 auto;
 }
 #xlor-nav .nav-logo {
@@ -138,7 +124,6 @@ export default {
     padding: 0 10px !important;
 }
 #xlor-nav .el-input-group__append {
-    /* padding: auto 10px !important; */
     padding: 0 12px !important;
     background-color: #409EFF !important;
     color: #ffffff !important;

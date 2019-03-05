@@ -24,8 +24,29 @@ export default {
         code: "refresh"
     },
     mounted() {
-        // window.hljs.initLineNumbersOnLoad();
-        // console.log(this.$refs['cd'].innerHTML);
+        const dom = this.$refs['cd'];
+
+        const changeFontSize = function() {
+            const width = document.body.clientWidth;
+            let fs = '16px', lh = '24px';
+            if (width < 1024) {
+                fs = "10px"; lh = '18px';
+            }
+
+            try {
+                dom.style['font-size'] = fs;
+                dom.style['line-height'] = lh;
+                dom.style['height'] = lh;
+            } catch(ex) {
+                console.log(ex);
+            } finally {
+                return false;
+            }
+        };
+        changeFontSize();
+
+        window.addEventListener('resize', changeFontSize);
+
         window.hljs.lineNumbersBlock(this.$refs['cd'], {singleLine: true});
     }
 };    
@@ -59,16 +80,14 @@ td.hljs-ln-numbers {
 
     text-align: right;
     color: #909399;
-    /* border-right: 1px solid #CCC; */
     border-right: 1px solid #909399;
-    /* box-shadow: inset -1px 0px 1px -1px #909399; */
     vertical-align: top;
     padding-right: 5px !important;
 
     /* your custom style here */
-    font-size: 16px;
+    /* font-size: 16px;
     line-height: 24px;
-    height: 24px;
+    height: 24px; */
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 2){
@@ -81,13 +100,13 @@ td.hljs-ln-numbers {
 
 /* for block of code */
 td.hljs-ln-code {
-    height: 24px;
+    /* height: 24px; */
     padding-left: 10px !important;
-    line-height: 24px;
+    /* line-height: 24px; */
 }
 
 pre>code tr {
-    line-height: 24px;
+    /* line-height: 24px; */
     padding: 0px;
 }
 </style>
