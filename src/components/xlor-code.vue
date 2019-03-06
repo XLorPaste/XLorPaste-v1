@@ -66,6 +66,14 @@ pre, code {
     white-space: pre;
     overflow-x: auto;
 }
+pre::-webkit-scrollbar {
+    width: .4rem;
+    height: .4rem;
+}
+pre::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.26);
+}
 .hljs {
     display: inline-block;
     overflow-x: auto;

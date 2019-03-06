@@ -53,7 +53,7 @@ export default {
     color: #909399;
     text-align: center;
     font-family: FiraCode, Consolas, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", monospace;
-    font-size: 14px;
+    font-size: .8rem;
 }
 .dlg-font {
     font-size: 20px !important;

@@ -3,7 +3,7 @@
     :default-active="activeIndex" :mode="mode" @select="handleSelect">
 
     <el-col :span="2" :xs="0"></el-col>
-    <el-menu-item index="index" class="nav-logo no-select"><router-link to="/index">XLorPaste</router-link></el-menu-item>
+    <el-menu-item index="index" class="nav-logo no-select"><router-link to="/index" style="outline:none;">XLorPaste</router-link></el-menu-item>
     <el-menu-item index="in" style="height: 100%;" class="no-border nav-input">
         <el-input placeholder="神秘Token" :style="inputStyle" v-model="codeID" 
             @keyup.enter.native="goUrl">
@@ -19,7 +19,6 @@ const changeFontSize = function() {
     const width = document.body.clientWidth;
     let ans = "16px";
     if (width < 1024) {
-        // ans = width / 1024 * 16 + "px";
         ans = "10px";
     }
     document.documentElement.style.fontSize = ans;
