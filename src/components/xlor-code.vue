@@ -43,10 +43,11 @@ export default {
                 dom.style['line-height'] = lh;
                 dom.style['height'] = lh;
             } catch(ex) {
-                console.error(ex);
+                // console.error(ex);
             } finally {
                 return false;
             }
+            return false;
         };
         changeFontSize();
 
@@ -102,7 +103,11 @@ td.hljs-ln-numbers {
     line-height: inherit;
     height: inherit;
 }
-
+@media screen and (max-width:1024px) {
+    td.hljs-ln-code {
+        padding-left: 5px !important;
+    }
+}
 @media screen and (-webkit-min-device-pixel-ratio: 2) {
     td.hljs-ln-numbers {
         border: none;
@@ -113,7 +118,7 @@ td.hljs-ln-numbers {
 
 /* for block of code */
 td.hljs-ln-code {
-    padding-left: 10px !important;
+    padding-left: 5px !important;
     height: inherit;
     line-height: inherit;
     font-size: inherit;

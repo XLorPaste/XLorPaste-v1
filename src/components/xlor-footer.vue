@@ -4,7 +4,7 @@
     <el-row>
         <a href="#" @click="showTip=true;">User Guide</a>
         |
-        <a href="http://xlor.cn/2018/%E9%A1%B9%E7%9B%AE/xlorpaste/">Project Blog</a>
+        <a href="https://xlor.cn/2018/12/xlorpaste/">Project Blog</a>
         |
         <a href="http://www.miitbeian.gov.cn">苏ICP备19000844号</a>
     </el-row>

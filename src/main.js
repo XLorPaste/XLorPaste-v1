@@ -22,8 +22,8 @@ hljs.registerLanguage('java', java);
 const DEBUG = false;
 var server_url, app_url;
 if (!DEBUG) {
-  server_url = "http://xlorpaste.cn/api/";
-  app_url = "http://xlorpaste.cn/";
+  server_url = "https://xlorpaste.cn/api/";
+  app_url = "https://xlorpaste.cn/";
 } else {
   server_url = "http://localhost:5000/api/";
   app_url = "http://localhost:8080/";
