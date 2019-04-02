@@ -1,6 +1,6 @@
 # XLorPaste
 
-Blog: [](https://xlor.cn/2018/12/xlorpaste/)
+Blog: [XLorPaste Blog](https://xlor.cn/2018/12/xlorpaste/)
 
 ## Project setup
 
