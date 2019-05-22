@@ -22,7 +22,8 @@ const idToLang = {
     1: 'cpp',
     2: 'python',
     3: 'java',
-    4: 'markdown'
+    4: 'javascript',
+    5: 'html'
 };
 
 export default {
@@ -30,7 +31,7 @@ export default {
         return {
             onload: false,
             pcode: '',
-            lang: 'plaintext',
+            lang: 'text',
         };
     },
     props: {
@@ -54,10 +55,9 @@ export default {
                         message: 'Token不合法',
                         type: 'error'
                     });
-                    this.router.replace({
+                    this.$router.replace({
                         path: '/index'
                     });
-                    return false;
                 }
                 this.code = Base64.decode(data['code']);
                 this.lang = idToLang[data['lang']];
@@ -75,7 +75,7 @@ export default {
                     message: msg,
                     type: 'error'
                 });
-                this.router.replace({
+                this.$router.replace({
                     path: '/index'
                 });
                 

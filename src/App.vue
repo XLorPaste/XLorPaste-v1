@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <xlor-nav @changewidth="changeWidth"></xlor-nav>
-    <!-- <xlorEditor></xlorEditor> -->
     <router-view :width="width"></router-view>
     <xlor-footer></xlor-footer>
   </div>
@@ -46,6 +45,35 @@ a {
   text-decoration:none;
   color: #4183C4;
 } 
+
+@font-face {
+  font-family: "FiraCode";
+  src: url('./assets/FiraCode-Regular.woff') format('woff');
+  src: url('./assets/FiraCode-Retina.ttf') format('truetype');
+}
+
+::-webkit-selection {
+  background-color: #CCE2FF;
+}
+::-moz-selection {
+  background-color: #CCE2FF;
+}
+::selection {
+  background-color: #CCE2FF;
+}
+
+input::-webkit-selection,textarea::-webkit-selection {
+  background-color: rgba(100,100,100,.4);
+  color: rgba(0,0,0,.87)
+}
+input::-moz-selection,textarea::-moz-selection {
+  background-color: rgba(100,100,100,.4);
+  color: rgba(0,0,0,.87)
+}
+input::selection,textarea::selection {
+  background-color: rgba(100,100,100,.4);
+  color: rgba(0,0,0,.87)
+}
 
 #app {
   position: relative;

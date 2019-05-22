@@ -44,10 +44,7 @@ export default {
                 dom.style['height'] = lh;
             } catch(ex) {
                 // console.error(ex);
-            } finally {
-                return false;
             }
-            return false;
         };
         changeFontSize();
 

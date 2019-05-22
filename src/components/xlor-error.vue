@@ -1,16 +1,12 @@
-<template>
-    
-</template>
-
 <script>
 export default {
-    mounted() {
+    created() {
         this.$message({
             duration: 4000,
             message: 'Url不合法',
             type: 'error'
         });
-        this.router.replace({
+        this.$router.replace({
             path: '/index'
         });
     }

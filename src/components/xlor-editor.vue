@@ -7,23 +7,15 @@
             <el-select size="medium" v-model="lang" placeholder="请选择"
                 style="margin-right: 10px;">
                 <el-option
-                v-for="item in langList"
-                :key="item"
-                :label="item"
-                :value="item">
+                    v-for="item in langList"
+                    :key="item"
+                    :label="item"
+                    :value="item">
                 </el-option>
             </el-select>
             <el-button size="medium" class="submit-button" type="success" icon="el-icon-upload" @click="submit">提交</el-button>
         </el-row>
 
-        <!-- <el-card shadow="always"> -->
-            <!-- <monaco-editor
-                class="editor"
-                v-model="code"
-                :options="option"
-                :language="lang"
-                theme="Visual Studio">
-            </monaco-editor> -->
         <el-input class="editor"
             type="textarea"
             :autosize="{ minRows: 20 }"
@@ -31,41 +23,32 @@
             autofocus="true"
             v-model="code">
         </el-input>
-        <!-- </el-card> -->
-
-        <!-- <el-button class="submit-button" type="success" icon="el-icon-upload" @click="submit">提交</el-button> -->
-
-        <!-- <el-button type="text">查看文本</el-button> -->
     </el-col>
 </el-row>
 </template>
 
 <script>
-// import MonacoEditor from 'vue-monaco'
 import { Base64 } from 'js-base64'
 
-const LANG = {
+let LANG = {
     "text": 0,
     "cpp": 1,
     "python": 2,
     "java": 3,
-    "markdown": 4
+    "javascript": 4,
+    "html": 5
 };
 
 export default {
     data() {
         return {
             code: "",
-            option: {
-                scrollBeyondLastLine: false,
-            },
             lang: "cpp",
-            langList: [ "text", "cpp", "python", "java", "markdown" ]
+            langList: Object.keys(LANG)
         };
     },
     methods: {
         submit() {
-            // console.log(this.code);
             this.$notify.closeAll();
 
             if (this.code.length < 10) {
@@ -73,14 +56,12 @@ export default {
                 return false;
             }
 
-            var form = {
+            let form = {
                 code: Base64.encodeURI(this.code),
                 lang: LANG[this.lang]
             };
             this.axios.post("/upload", form).then(function(response) {
-                var data = response.data;
-
-                // console.log(data['token']);
+                let data = response.data;
 
                 if (data['status'] == 'reject') {
                     this.$message.error('上传失败');
@@ -100,14 +81,11 @@ export default {
                 });
 
             }.bind(this)).catch(error => {
-                console.log(error);
+                // console.log(error);
                 this.$message.error('上传失败');
             }); 
         }
     },
-    components: {
-        // MonacoEditor
-    },    
 };    
 </script>
 
@@ -125,17 +103,4 @@ export default {
 #xlor-editor .submit-button {
     margin: 10px auto; 
 }
-/* #xlor-editor>.el-col {
-    height: 500px;
-}
-#xlor-editor .el-card {
-    margin-top: 10px;
-    width: 100%;
-    height: 100%;
-}
-#xlor-editor .el-card>div {
-    margin: 0 auto;
-    width: 96%;
-    height: 96%;
-} */
 </style>

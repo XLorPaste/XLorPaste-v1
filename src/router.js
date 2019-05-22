@@ -15,11 +15,11 @@ export default new VueRouter({
             path: '', 
             redirect: '/index'
         },
-        {
-            path: '/ide',
-            name: 'ide',
-            component: resolve => require(['./components/xlor-ide.vue'], resolve)  
-        },
+        // {
+        //     path: '/ide',
+        //     name: 'ide',
+        //     component: resolve => require(['./components/xlor-ide.vue'], resolve)  
+        // },
         {
             path: '/:id',
             component: resolve => require(['./components/xlor-view.vue'], resolve)

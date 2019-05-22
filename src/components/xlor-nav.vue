@@ -44,7 +44,7 @@ export default {
         handleSelect(key) {
             // console.log(key);
             if (key === 'index') {
-                this.router.push({
+                this.$router.push({
                     path: '/index'
                 });
             }
@@ -57,11 +57,11 @@ export default {
                     message: 'Token不合法',
                     type: 'error'
                 });
-                this.router.push({
+                this.$router.push({
                     path: '/index'
                 });
             } else {
-                this.router.push({
+                this.$router.push({
                     path: '/' + this.codeID
                 });
             }
