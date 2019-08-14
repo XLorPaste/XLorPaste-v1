@@ -7,7 +7,7 @@ import router from './router'
 import 'element-ui/lib/theme-chalk/index.css'
 // import ElementUI from 'element-ui'
 import { 
-  Dialog, Menu, MenuItem, Input, Select, Button, Form, FormItem, Row, Col, Card, Message, Notification, MessageBox, Option
+  Dialog, Menu, MenuItem, Input, Select, Button, Form, FormItem, Row, Col, Card, Message, Notification, MessageBox, Option, Backtop
 } from 'element-ui'
 
 // Vue.use(ElementUI);
@@ -24,6 +24,7 @@ Vue.use(Row);
 Vue.use(Col);
 Vue.use(Card);
 Vue.use(Option);
+Vue.use(Backtop);
 
 Vue.prototype.$message = Message;
 Vue.prototype.$notify = Notification;
