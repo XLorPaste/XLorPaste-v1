@@ -6,19 +6,18 @@ Blog: [XLorPaste Blog](https://xlor.cn/2018/12/xlorpaste/)
 
 ## Project setup
 
-```
-npm install
+```bash
+yarn
 ```
 
 ### Compiles and hot-reloads for development
 
-```
-npm run serve
+```bash
+yarn run serve
 ```
 
 ### Compiles and minifies for production
 
+```bash
+yarn run build
 ```
-npm run build
-```
-
