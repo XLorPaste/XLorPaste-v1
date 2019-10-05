@@ -1,8 +1,13 @@
 language: node_js
 node_js: 10
 
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
 install:
-  - npm install .
+  - yarn
 
 script:
-  - npm run build
+  - yarn run build
