@@ -4,29 +4,20 @@
     <router-view :width="width"></router-view>
     <xlor-footer></xlor-footer>
     <el-backtop>
-      <div
-        style="{
-          height: 100%;
-          width: 100%;
-          background-color: #f2f5f6;
-          box-shadow: 0 0 6px rgba(0,0,0, .12);
-          text-align: center;
-          line-height: 40px;
-          color: #1989fa;
-        }">UP</div>
+      <i class="el-icon-caret-top" style="font-size: 24px"></i>
     </el-backtop>
   </div>
 </template>
 
 <script>
-import xlorNav from './components/xlor-nav.vue'
-import xlorFooter from './components/xlor-footer.vue'
+import xlorNav from "./components/nav.vue";
+import xlorFooter from "./components/footer.vue";
 
 export default {
-  name: 'app',
-  data(){
+  name: "app",
+  data() {
     return {
-      width: document.body.clientWidth,
+      width: document.body.clientWidth
     };
   },
   methods: {
@@ -37,54 +28,50 @@ export default {
   components: {
     xlorNav,
     xlorFooter
-  },
-  mounted() {
-
   }
-}
+};
 </script>
 
 <style>
 * {
   margin: 0;
   padding: 0;
-  font-family: FiraCode, Consolas, sans-serif, "PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial;
+  font-family: FiraCode, Consolas, sans-serif, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "微软雅黑", Arial;
 }
-html, body {
+html,
+body {
   height: 100%;
 }
-a { 
-  text-decoration:none;
-  color: #4183C4;
-} 
-
-@font-face {
-  font-family: "FiraCode";
-  src: url('./assets/FiraCode-Regular.woff') format('woff');
-  src: url('./assets/FiraCode-Retina.ttf') format('truetype');
+a {
+  text-decoration: none;
+  color: #4183c4;
 }
 
 ::-webkit-selection {
-  background-color: #CCE2FF;
+  background-color: #cce2ff;
 }
 ::-moz-selection {
-  background-color: #CCE2FF;
+  background-color: #cce2ff;
 }
 ::selection {
-  background-color: #CCE2FF;
+  background-color: #cce2ff;
 }
 
-input::-webkit-selection,textarea::-webkit-selection {
-  background-color: rgba(100,100,100,.4);
-  color: rgba(0,0,0,.87)
+input::-webkit-selection,
+textarea::-webkit-selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(0, 0, 0, 0.87);
 }
-input::-moz-selection,textarea::-moz-selection {
-  background-color: rgba(100,100,100,.4);
-  color: rgba(0,0,0,.87)
+input::-moz-selection,
+textarea::-moz-selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(0, 0, 0, 0.87);
 }
-input::selection,textarea::selection {
-  background-color: rgba(100,100,100,.4);
-  color: rgba(0,0,0,.87)
+input::selection,
+textarea::selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 #app {
@@ -98,12 +85,13 @@ input::selection,textarea::selection {
   text-align: center;
 }
 .no-select {
-  -webkit-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .code-font {
-  font-family: FiraCode, Consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+  font-family: FiraCode, Consolas, Menlo, "PingFang SC", "Microsoft YaHei",
+    monospace;
 }
 </style>
