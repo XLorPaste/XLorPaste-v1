@@ -33,10 +33,20 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap&subset=latin-ext');
+
+/* @font-face {
+  font-family: "Fira Code";
+  src: url('./assets/FiraCode-Retina.woff2') format('woff2'),
+       url('./assets/FiraCode-Retina.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+} */
+
 * {
   margin: 0;
   padding: 0;
-  font-family: FiraCode, Consolas, sans-serif, "PingFang SC", "Hiragino Sans GB",
+  font-family: 'Fira Code', Consolas, sans-serif, "PingFang SC", "Hiragino Sans GB",
     "Microsoft YaHei", "微软雅黑", Arial;
 }
 html,
@@ -91,7 +101,7 @@ textarea::selection {
   user-select: none;
 }
 .code-font {
-  font-family: FiraCode, Consolas, Menlo, "PingFang SC", "Microsoft YaHei",
+  font-family: 'Fira Code', Consolas, Menlo, "PingFang SC", "Microsoft YaHei",
     monospace;
 }
 </style>
