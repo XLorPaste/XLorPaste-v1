@@ -5,7 +5,7 @@ export const appUrl =
 
 export const apiUrl =
   process.env.NODE_ENV === "development"
-    ? "http://localhost:3000/"
+    ? "https://api.xlorpaste.cn/"
     : "https://api.xlorpaste.cn/";
 
 export const LANG = {
