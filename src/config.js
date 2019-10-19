@@ -11,7 +11,7 @@ export const apiUrl =
 export const LANG = {
   text: "text",
   cpp: "cpp",
-  python: "py",
+  python: "python",
   java: "java",
   javascript: "js"
 };
