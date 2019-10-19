@@ -76,6 +76,13 @@ window.copyData = function(data, t) {
 
 Vue.config.productionTip = true;
 
+import VueAnalytics from "vue-analytics";
+
+Vue.use(VueAnalytics, {
+  id: "UA-150361094-1",
+  router
+});
+
 new Vue({
   el: "#app",
   router,
