@@ -33,20 +33,17 @@ pre,
 code {
   white-space: pre;
   overflow-x: auto;
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
   font-size: 16px !important;
 }
 
-@media only screen 
-  and (min-device-width : 414px) 
-  and (max-device-height : 736px) 
-  and (-webkit-device-pixel-ratio : 3) {
-    pre,
-    code {
-      font-family: 'Fira Code', monospace;
-      font-size: 6px !important;
-    }
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
+  pre,
+  code {
+    font-family: "Fira Code", monospace;
+    font-size: 6px !important;
   }
+}
 
 pre::-webkit-scrollbar {
   width: 0.4rem;
