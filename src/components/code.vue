@@ -28,21 +28,25 @@ export default {
 <style>
 #xlor-code {
   width: 100%;
-  font-size: 16px;
 }
 pre,
 code {
   white-space: pre;
   overflow-x: auto;
+  font-family: 'Fira Code', monospace;
   font-size: 16px !important;
 }
 
-@media screen and (max-width: 768px) {
-  pre,
-  code {
-    font-size: 9px !important;
+@media only screen 
+  and (min-device-width : 414px) 
+  and (max-device-height : 736px) 
+  and (-webkit-device-pixel-ratio : 3) {
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+      font-size: 6px !important;
+    }
   }
-}
 
 pre::-webkit-scrollbar {
   width: 0.4rem;
