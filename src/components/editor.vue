@@ -34,6 +34,7 @@
         :rows="20"
         autofocus="true"
         v-model="code"
+        @keyup.ctrl.enter.native="submit"
       >
       </el-input>
     </el-col>
